@@ -1,0 +1,15 @@
+style "tooltips"	= "default"
+{
+	bg[NORMAL]		= "#e8ecf6"
+	fg[NORMAL]		= "#2e262e" 
+	
+	xthickness = 4
+        ythickness = 4
+
+	engine "murrine" {
+		roundness = 3 
+		gradient_shades = {1.1, 1.0, 1.0, 0.95} 
+		reliefstyle = 0
+		rgba = TRUE
+	}
+}
