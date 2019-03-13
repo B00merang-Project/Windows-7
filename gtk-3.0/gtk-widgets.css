@@ -1165,6 +1165,7 @@ notebook {
           margin-top: 0;
           margin-bottom: -1px; }
     notebook > header.bottom {
+      padding-top: 0;
       box-shadow: 0 -1px @borders; }
       notebook > header.bottom > tabs > tab {
         border-top: none;
@@ -1192,7 +1193,7 @@ notebook {
         notebook > header.left > tabs > tab:checked {
           border-top-left-radius: 0px;
           border-bottom-left-radius: 0px;
-          margin: 0;
+          margin-left: 0;
           margin-right: -1px; }
   notebook > header.top > tabs > arrow.up, notebook > header.bottom > tabs > arrow.up {
     -gtk-icon-source: -gtk-icontheme("pan-end-symbolic"); }
@@ -1509,15 +1510,15 @@ scrollbar {
       border-radius: 3px;
       background-clip: padding-box;
       background-color: shade(@theme_bg_color, 0.6);
-      background-image: linear-gradient(to bottom, @bg_color 50%, shade(@bg_color, 0.95) 51%, shade(@bg_color, 0.94)); }
+      background: url("assets/handle-vert.png") no-repeat center center, linear-gradient(to bottom, @bg_color 50%, shade(@bg_color, 0.95) 51%, shade(@bg_color, 0.94)); }
       scrollbar.horizontal slider:hover {
         border-color: shade(@theme_selected_bg_color, 0.7);
         background-color: shade(@theme_bg_color, 0.6);
-        background-image: linear-gradient(to bottom, shade(@theme_selected_bg_color, 1.12), @theme_selected_bg_color 50%, shade(@theme_selected_bg_color, 0.95) 51%); }
+        background: url("assets/handle-horiz-hover.png") no-repeat center center linear-gradient(to bottom, shade(@theme_selected_bg_color, 1.12), @theme_selected_bg_color 50%, shade(@theme_selected_bg_color, 0.95) 51%); }
         scrollbar.horizontal slider:hover:active {
           border-color: shade(@theme_selected_bg_color, 0.6);
           background-color: shade(@theme_bg_color, 0.55);
-          background-image: linear-gradient(to bottom, shade(@theme_selected_bg_color, 1.07), shade(@theme_selected_bg_color, 0.95) 50%, shade(@theme_selected_bg_color, 0.9) 51%); }
+          background: url("assets/handle-horiz-hover.png") no-repeat center center, linear-gradient(to bottom, shade(@theme_selected_bg_color, 1.07), shade(@theme_selected_bg_color, 0.95) 50%, shade(@theme_selected_bg_color, 0.9) 51%); }
       scrollbar.horizontal slider:backdrop {
         background-color: shade(@theme_bg_color, 0.55); }
       scrollbar.horizontal slider:disabled {
