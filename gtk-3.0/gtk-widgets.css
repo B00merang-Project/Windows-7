@@ -109,29 +109,40 @@ assistant .sidebar {
   color: @theme_fg_color;
   background-color: @theme_bg_color; }
 
-button:link > label, button:visited > label, *:link, button:link, button:visited {
+button:link > label, button:visited > label,
+*:link,
+button:link,
+button:visited {
   color: @link_color; }
-  button:link > label:visited, button:visited > label:visited, *:link:visited, button:visited {
+  button:link > label:visited, button:visited > label:visited,
+  *:link:visited,
+  button:visited {
     color: mix(@link_color, @theme_fg_color, 0.2); }
-    *:selected button:link > label:visited, *:selected button:visited > label:visited,
-    *:selected *:link:visited,
-    *:selected button:visited:link,
-    *:selected button:visited {
-      color: mix(@selected_fg_color, @selected_bg_color, 0.4); }
-  button:link > label:hover, button:visited > label:hover, *:link:hover, button:hover:link, button:hover:visited {
+    *:selected button:link > label:visited, *:selected button:visited > label:visited, *:selected
+    *:link:visited, *:selected
+    button:visited:link, *:selected
+    button:visited {
+      color: mix(@theme_selected_fg_color, @theme_selected_bg_color, 0.4); }
+  button:link > label:hover, button:visited > label:hover,
+  *:link:hover,
+  button:hover:link,
+  button:hover:visited {
     color: shade(@link_color, 1.1); }
-    *:selected button:link > label:hover, *:selected button:visited > label:hover,
-    *:selected *:link:hover,
-    *:selected button:hover:link,
-    *:selected button:hover:visited {
-      color: mix(@selected_fg_color, @selected_bg_color, 0.9); }
-  button:link > label:active, button:visited > label:active, *:link:active, button:active:link, button:active:visited {
+    *:selected button:link > label:hover, *:selected button:visited > label:hover, *:selected
+    *:link:hover, *:selected
+    button:hover:link, *:selected
+    button:hover:visited {
+      color: mix(@theme_selected_fg_color, @theme_selected_bg_color, 0.9); }
+  button:link > label:active, button:visited > label:active,
+  *:link:active,
+  button:active:link,
+  button:active:visited {
     color: @link_color; }
-    *:selected button:link > label:active, *:selected button:visited > label:active,
-    *:selected *:link:active,
-    *:selected button:active:link,
-    *:selected button:active:visited {
-      color: mix(@selected_fg_color, @selected_bg_color, 0.8); }
+    *:selected button:link > label:active, *:selected button:visited > label:active, *:selected
+    *:link:active, *:selected
+    button:active:link, *:selected
+    button:active:visited {
+      color: mix(@theme_selected_fg_color, @theme_selected_bg_color, 0.8); }
   button:link > label:backdrop:backdrop:hover, button:visited > label:backdrop:backdrop:hover, button:link > label:backdrop:backdrop:hover:selected, button:visited > label:backdrop:backdrop:hover:selected, button:link > label:backdrop, button:visited > label:backdrop,
   *:link:backdrop:backdrop:hover,
   button:backdrop:backdrop:hover:link,
@@ -142,15 +153,15 @@ button:link > label, button:visited > label, *:link, button:link, button:visited
   *:link:backdrop,
   button:backdrop:link,
   button:backdrop:visited {
-    color: @selected_bg_color; }
+    color: mix(@link_color, @theme_unfocused_selected_bg_color, 0.3); }
   button:link > label:selected, button:visited > label:selected, *:selected button:link > label, *:selected button:visited > label,
   *:link:selected,
   button:selected:link,
-  button:selected:visited,
-  *:selected *:link,
-  *:selected button:link,
-  *:selected button:visited {
-    color: mix(@selected_fg_color, @selected_bg_color, 0.8); }
+  button:selected:visited, *:selected
+  *:link, *:selected
+  button:link, *:selected
+  button:visited {
+    color: mix(@theme_selected_fg_color, @theme_selected_bg_color, 0.8); }
 
 button:link, button:visited {
   border-color: transparent;
@@ -169,7 +180,7 @@ button {
   border-width: 1px;
   border-radius: 3px;
   color: @theme_fg_color;
-  border-color: shade(@theme_bg_color, 0.75);
+  border-color: shade(@borders, 0.85);
   background-color: @theme_bg_color;
   background-image: linear-gradient(to bottom, @theme_bg_color 50%, shade(@theme_bg_color, 0.95) 51%, shade(@theme_bg_color, 0.94));
   box-shadow: inset 0 0 0 1px alpha(@light_shadow, 0.6); }
@@ -1281,8 +1292,8 @@ progressbar {
     border: none;
     border-radius: 0;
     background-color: @progressbar_bg_color;
-    background-image: linear-gradient(to bottom, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
-    box-shadow: inset 6px 0 3px 0px alpha(@dark_shadow, 0.115), inset -6px 0 3px 0px alpha(@dark_shadow, 0.115); }
+    background: -gtk-gradient(radial, left center, 0, left center, 0.6, from(alpha(@dark_shadow, 0.2)), to(transparent)) left no-repeat, -gtk-gradient(radial, right center, 0, right center, 0.6, from(alpha(@dark_shadow, 0.2)), to(transparent)) right no-repeat, linear-gradient(to bottom, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
+    background-size: 40px 100%; }
     progressbar.horizontal progress:backdrop {
       background-color: @progressbar_bg_color; }
   progressbar.horizontal trough {
@@ -1296,8 +1307,8 @@ progressbar {
     border: none;
     border-radius: 0;
     background-color: @progressbar_bg_color;
-    background-image: linear-gradient(to right, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
-    box-shadow: inset 0 6px 3px 0px alpha(@dark_shadow, 0.115), inset 0 -6px 3px 0px alpha(@dark_shadow, 0.115); }
+    background: -gtk-gradient(radial, center top, 0, center top, 0.6, from(alpha(@dark_shadow, 0.2)), to(transparent)) top no-repeat, -gtk-gradient(radial, center bottom, 0, center bottom, 0.6, from(alpha(@dark_shadow, 0.2)), to(transparent)) bottom no-repeat, linear-gradient(to left, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
+    background-size: 100% 40px; }
     progressbar.vertical progress:backdrop {
       background-color: @progressbar_bg_color; }
   progressbar.vertical trough {
@@ -1628,8 +1639,7 @@ filechooser placessidebar.sidebar row, filechooser placessidebar.sidebar view ro
     color: @sidebar_fg_color;
     background-color: mix(@sidebar_bg_color, @dark_shadow, 0.15); }
 
-.nautilus-window.csd.background,
-.nautilus-window placessidebar list {
+.nautilus-window.csd.background, .nautilus-window placessidebar list {
   background-color: @sidebar_bg_color; }
 
 .nautilus-window placessidebar.sidebar row.sidebar-row {
@@ -1882,6 +1892,41 @@ headerbar, headerbar:not(.titlebar) {
     padding-left: 12px;
     padding-right: 12px;
     color: alpha(currentColor, 0.7); }
+  headerbar button, headerbar:not(.titlebar) button {
+    padding: 3px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    color: @theme_fg_color;
+    border-color: @borders;
+    background-color: @theme_bg_color;
+    background-image: linear-gradient(to bottom, @theme_bg_color 50%, shade(@theme_bg_color, 0.95) 51%, shade(@theme_bg_color, 0.94));
+    box-shadow: inset 0 0 0 1px alpha(@light_shadow, 0.6); }
+    headerbar button:hover, headerbar:not(.titlebar) button:hover {
+      color: @theme_fg_color;
+      border-color: shade(@theme_selected_bg_color, 0.7);
+      background-color: shade(@theme_selected_bg_color, 1.02);
+      background-image: linear-gradient(to bottom, shade(@theme_selected_bg_color, 1.12), @theme_selected_bg_color 50%, shade(@theme_selected_bg_color, 0.95) 51%); }
+    headerbar button:active, headerbar button:checked, headerbar:not(.titlebar) button:active, headerbar:not(.titlebar) button:checked {
+      color: @theme_fg_color;
+      border-color: shade(@theme_selected_bg_color, 0.6);
+      background-color: shade(@theme_selected_bg_color, 0.95);
+      background-image: linear-gradient(to bottom, shade(@theme_selected_bg_color, 1.07), shade(@theme_selected_bg_color, 0.95) 50%, shade(@theme_selected_bg_color, 0.9) 51%); }
+      headerbar button:active:backdrop, headerbar button:checked:backdrop, headerbar:not(.titlebar) button:active:backdrop, headerbar:not(.titlebar) button:checked:backdrop {
+        color: @theme_unfocused_fg_color;
+        border-color: shade(@theme_unfocused_bg_color, 0.85);
+        background-color: shade(@theme_unfocused_bg_color, 0.85);
+        background-image: linear-gradient(to bottom, shade(@theme_unfocused_selected_bg_color, 1.07), shade(@theme_unfocused_selected_bg_color, 0.95) 50%, shade(@theme_unfocused_selected_bg_color, 0.9) 51%); }
+      headerbar button:active:disabled, headerbar button:checked:disabled, headerbar:not(.titlebar) button:active:disabled, headerbar:not(.titlebar) button:checked:disabled {
+        color: mix(@theme_fg_color, @theme_unfocused_disabled_fg_color, 0.1); }
+        headerbar button:active:disabled:backdrop, headerbar button:checked:disabled:backdrop, headerbar:not(.titlebar) button:active:disabled:backdrop, headerbar:not(.titlebar) button:checked:disabled:backdrop {
+          color: @theme_unfocused_disabled_fg_color; }
+    headerbar button:disabled, headerbar:not(.titlebar) button:disabled {
+      color: mix(@theme_fg_color, @theme_unfocused_disabled_fg_color, 0.1); }
+      headerbar button:disabled:backdrop, headerbar:not(.titlebar) button:disabled:backdrop {
+        color: @theme_unfocused_disabled_fg_color; }
+    headerbar button:backdrop, headerbar:not(.titlebar) button:backdrop {
+      color: @theme_unfocused_fg_color; }
   headerbar entry, headerbar:not(.titlebar) entry {
     padding: 4px 8px; }
 
@@ -1930,7 +1975,7 @@ toolbar {
     border-width: 1px;
     border-radius: 3px;
     color: @toolbar_fg_color;
-    border-color: shade(@toolbar_bg_color, 0.75);
+    border-color: shade(@borders, 0.85);
     background-color: @toolbar_bg_color;
     background-image: linear-gradient(to bottom, @toolbar_bg_color 50%, shade(@toolbar_bg_color, 0.95) 51%, shade(@toolbar_bg_color, 0.94));
     box-shadow: inset 0 0 0 1px alpha(@light_shadow, 0.6); }
@@ -1977,7 +2022,7 @@ toolbar {
     border-width: 1px;
     border-radius: 3px;
     color: @toolbar_fg_color;
-    border-color: shade(@toolbar_bg_color, 0.75);
+    border-color: @borders;
     background-color: @toolbar_bg_color;
     background-image: linear-gradient(to bottom, @toolbar_bg_color 50%, shade(@toolbar_bg_color, 0.95) 51%, shade(@toolbar_bg_color, 0.94));
     box-shadow: inset 0 0 0 1px alpha(@light_shadow, 0.6); }
@@ -2007,146 +2052,146 @@ toolbar {
     .inline-toolbar toolbar button:backdrop {
       color: @theme_unfocused_fg_color; }
 
-.linked button, .linked .raised button, .inline-toolbar .linked button, .inline-toolbar .linked .raised button, .primary-toolbar .linked button, .primary-toolbar .linked .raised button {
+.linked button, .linked .raised button, .inline-toolbar .linked button, .inline-toolbar .linked .raised button, .primary-toolbar .linked button, .primary-toolbar .linked .raised button, .osd .linked button, .osd .linked .raised button, .inline-toolbar .osd .linked button, .inline-toolbar .osd .linked .raised button, .primary-toolbar .osd .linked button, .primary-toolbar .osd .linked .raised button {
   border-radius: 0;
   border-left-width: 0; }
-  .linked button:first-child, .linked .raised button:first-child, .inline-toolbar .linked button:first-child, .inline-toolbar .linked .raised button:first-child, .primary-toolbar .linked button:first-child, .primary-toolbar .linked .raised button:first-child {
+  .linked button:first-child, .linked .raised button:first-child, .inline-toolbar .linked button:first-child, .inline-toolbar .linked .raised button:first-child, .primary-toolbar .linked button:first-child, .primary-toolbar .linked .raised button:first-child, .osd .linked button:first-child, .osd .linked .raised button:first-child, .inline-toolbar .osd .linked button:first-child, .inline-toolbar .osd .linked .raised button:first-child, .primary-toolbar .osd .linked button:first-child, .primary-toolbar .osd .linked .raised button:first-child {
     border-left-width: 1px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px; }
-  .linked button:last-child, .linked .raised button:last-child, .inline-toolbar .linked button:last-child, .inline-toolbar .linked .raised button:last-child, .primary-toolbar .linked button:last-child, .primary-toolbar .linked .raised button:last-child {
+  .linked button:last-child, .linked .raised button:last-child, .inline-toolbar .linked button:last-child, .inline-toolbar .linked .raised button:last-child, .primary-toolbar .linked button:last-child, .primary-toolbar .linked .raised button:last-child, .osd .linked button:last-child, .osd .linked .raised button:last-child, .inline-toolbar .osd .linked button:last-child, .inline-toolbar .osd .linked .raised button:last-child, .primary-toolbar .osd .linked button:last-child, .primary-toolbar .osd .linked .raised button:last-child {
     border-left-width: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px; }
-  .linked button:only-child, .linked .raised button:only-child, .inline-toolbar .linked button:only-child, .inline-toolbar .linked .raised button:only-child, .primary-toolbar .linked button:only-child, .primary-toolbar .linked .raised button:only-child {
+  .linked button:only-child, .linked .raised button:only-child, .inline-toolbar .linked button:only-child, .inline-toolbar .linked .raised button:only-child, .primary-toolbar .linked button:only-child, .primary-toolbar .linked .raised button:only-child, .osd .linked button:only-child, .osd .linked .raised button:only-child, .inline-toolbar .osd .linked button:only-child, .inline-toolbar .osd .linked .raised button:only-child, .primary-toolbar .osd .linked button:only-child, .primary-toolbar .osd .linked .raised button:only-child {
     border-width: 1px;
     border-radius: 3px; }
-  .linked button:focus, .linked button:hover, .linked button:active, .linked button:checked, .linked .raised button:focus, .linked .raised button:hover, .linked .raised button:active, .linked .raised button:checked, .inline-toolbar .linked button:focus, .inline-toolbar .linked button:hover, .inline-toolbar .linked button:active, .inline-toolbar .linked button:checked, .inline-toolbar .linked .raised button:focus, .inline-toolbar .linked .raised button:hover, .inline-toolbar .linked .raised button:active, .inline-toolbar .linked .raised button:checked, .primary-toolbar .linked button:focus, .primary-toolbar .linked button:hover, .primary-toolbar .linked button:active, .primary-toolbar .linked button:checked, .primary-toolbar .linked .raised button:focus, .primary-toolbar .linked .raised button:hover, .primary-toolbar .linked .raised button:active, .primary-toolbar .linked .raised button:checked {
+  .linked button:focus, .linked button:hover, .linked button:active, .linked button:checked, .linked .raised button:focus, .linked .raised button:hover, .linked .raised button:active, .linked .raised button:checked, .inline-toolbar .linked button:focus, .inline-toolbar .linked button:hover, .inline-toolbar .linked button:active, .inline-toolbar .linked button:checked, .inline-toolbar .linked .raised button:focus, .inline-toolbar .linked .raised button:hover, .inline-toolbar .linked .raised button:active, .inline-toolbar .linked .raised button:checked, .primary-toolbar .linked button:focus, .primary-toolbar .linked button:hover, .primary-toolbar .linked button:active, .primary-toolbar .linked button:checked, .primary-toolbar .linked .raised button:focus, .primary-toolbar .linked .raised button:hover, .primary-toolbar .linked .raised button:active, .primary-toolbar .linked .raised button:checked, .osd .linked button:focus, .osd .linked button:hover, .osd .linked button:active, .osd .linked button:checked, .osd .linked .raised button:focus, .osd .linked .raised button:hover, .osd .linked .raised button:active, .osd .linked .raised button:checked, .inline-toolbar .osd .linked button:focus, .inline-toolbar .osd .linked button:hover, .inline-toolbar .osd .linked button:active, .inline-toolbar .osd .linked button:checked, .inline-toolbar .osd .linked .raised button:focus, .inline-toolbar .osd .linked .raised button:hover, .inline-toolbar .osd .linked .raised button:active, .inline-toolbar .osd .linked .raised button:checked, .primary-toolbar .osd .linked button:focus, .primary-toolbar .osd .linked button:hover, .primary-toolbar .osd .linked button:active, .primary-toolbar .osd .linked button:checked, .primary-toolbar .osd .linked .raised button:focus, .primary-toolbar .osd .linked .raised button:hover, .primary-toolbar .osd .linked .raised button:active, .primary-toolbar .osd .linked .raised button:checked {
     box-shadow: -1px 0 shade(@theme_selected_bg_color, 0.6); }
-    .linked button:focus:backdrop, .linked button:hover:backdrop, .linked button:active:backdrop, .linked button:checked:backdrop, .linked .raised button:focus:backdrop, .linked .raised button:hover:backdrop, .linked .raised button:active:backdrop, .linked .raised button:checked:backdrop, .inline-toolbar .linked button:focus:backdrop, .inline-toolbar .linked button:hover:backdrop, .inline-toolbar .linked button:active:backdrop, .inline-toolbar .linked button:checked:backdrop, .inline-toolbar .linked .raised button:focus:backdrop, .inline-toolbar .linked .raised button:hover:backdrop, .inline-toolbar .linked .raised button:active:backdrop, .inline-toolbar .linked .raised button:checked:backdrop, .primary-toolbar .linked button:focus:backdrop, .primary-toolbar .linked button:hover:backdrop, .primary-toolbar .linked button:active:backdrop, .primary-toolbar .linked button:checked:backdrop, .primary-toolbar .linked .raised button:focus:backdrop, .primary-toolbar .linked .raised button:hover:backdrop, .primary-toolbar .linked .raised button:active:backdrop, .primary-toolbar .linked .raised button:checked:backdrop {
+    .linked button:focus:backdrop, .linked button:hover:backdrop, .linked button:active:backdrop, .linked button:checked:backdrop, .linked .raised button:focus:backdrop, .linked .raised button:hover:backdrop, .linked .raised button:active:backdrop, .linked .raised button:checked:backdrop, .inline-toolbar .linked button:focus:backdrop, .inline-toolbar .linked button:hover:backdrop, .inline-toolbar .linked button:active:backdrop, .inline-toolbar .linked button:checked:backdrop, .inline-toolbar .linked .raised button:focus:backdrop, .inline-toolbar .linked .raised button:hover:backdrop, .inline-toolbar .linked .raised button:active:backdrop, .inline-toolbar .linked .raised button:checked:backdrop, .primary-toolbar .linked button:focus:backdrop, .primary-toolbar .linked button:hover:backdrop, .primary-toolbar .linked button:active:backdrop, .primary-toolbar .linked button:checked:backdrop, .primary-toolbar .linked .raised button:focus:backdrop, .primary-toolbar .linked .raised button:hover:backdrop, .primary-toolbar .linked .raised button:active:backdrop, .primary-toolbar .linked .raised button:checked:backdrop, .osd .linked button:focus:backdrop, .osd .linked button:hover:backdrop, .osd .linked button:active:backdrop, .osd .linked button:checked:backdrop, .osd .linked .raised button:focus:backdrop, .osd .linked .raised button:hover:backdrop, .osd .linked .raised button:active:backdrop, .osd .linked .raised button:checked:backdrop, .inline-toolbar .osd .linked button:focus:backdrop, .inline-toolbar .osd .linked button:hover:backdrop, .inline-toolbar .osd .linked button:active:backdrop, .inline-toolbar .osd .linked button:checked:backdrop, .inline-toolbar .osd .linked .raised button:focus:backdrop, .inline-toolbar .osd .linked .raised button:hover:backdrop, .inline-toolbar .osd .linked .raised button:active:backdrop, .inline-toolbar .osd .linked .raised button:checked:backdrop, .primary-toolbar .osd .linked button:focus:backdrop, .primary-toolbar .osd .linked button:hover:backdrop, .primary-toolbar .osd .linked button:active:backdrop, .primary-toolbar .osd .linked button:checked:backdrop, .primary-toolbar .osd .linked .raised button:focus:backdrop, .primary-toolbar .osd .linked .raised button:hover:backdrop, .primary-toolbar .osd .linked .raised button:active:backdrop, .primary-toolbar .osd .linked .raised button:checked:backdrop {
       box-shadow: -1px 0 shade(@theme_unfocused_bg_color, 0.85); }
-  .linked button:first-child:focus, .linked button:first-child:hover, .linked button:first-child:active, .linked button:first-child:checked, .linked button:only-child:focus, .linked button:only-child:hover, .linked button:only-child:active, .linked button:only-child:checked, .linked .raised button:first-child:focus, .linked .raised button:first-child:hover, .linked .raised button:first-child:active, .linked .raised button:first-child:checked, .linked .raised button:only-child:focus, .linked .raised button:only-child:hover, .linked .raised button:only-child:active, .linked .raised button:only-child:checked, .inline-toolbar .linked button:first-child:focus, .inline-toolbar .linked button:first-child:hover, .inline-toolbar .linked button:first-child:active, .inline-toolbar .linked button:first-child:checked, .inline-toolbar .linked button:only-child:focus, .inline-toolbar .linked button:only-child:hover, .inline-toolbar .linked button:only-child:active, .inline-toolbar .linked button:only-child:checked, .inline-toolbar .linked .raised button:first-child:focus, .inline-toolbar .linked .raised button:first-child:hover, .inline-toolbar .linked .raised button:first-child:active, .inline-toolbar .linked .raised button:first-child:checked, .inline-toolbar .linked .raised button:only-child:focus, .inline-toolbar .linked .raised button:only-child:hover, .inline-toolbar .linked .raised button:only-child:active, .inline-toolbar .linked .raised button:only-child:checked, .primary-toolbar .linked button:first-child:focus, .primary-toolbar .linked button:first-child:hover, .primary-toolbar .linked button:first-child:active, .primary-toolbar .linked button:first-child:checked, .primary-toolbar .linked button:only-child:focus, .primary-toolbar .linked button:only-child:hover, .primary-toolbar .linked button:only-child:active, .primary-toolbar .linked button:only-child:checked, .primary-toolbar .linked .raised button:first-child:focus, .primary-toolbar .linked .raised button:first-child:hover, .primary-toolbar .linked .raised button:first-child:active, .primary-toolbar .linked .raised button:first-child:checked, .primary-toolbar .linked .raised button:only-child:focus, .primary-toolbar .linked .raised button:only-child:hover, .primary-toolbar .linked .raised button:only-child:active, .primary-toolbar .linked .raised button:only-child:checked {
+  .linked button:first-child:focus, .linked button:first-child:hover, .linked button:first-child:active, .linked button:first-child:checked, .linked button:only-child:focus, .linked button:only-child:hover, .linked button:only-child:active, .linked button:only-child:checked, .linked .raised button:first-child:focus, .linked .raised button:first-child:hover, .linked .raised button:first-child:active, .linked .raised button:first-child:checked, .linked .raised button:only-child:focus, .linked .raised button:only-child:hover, .linked .raised button:only-child:active, .linked .raised button:only-child:checked, .inline-toolbar .linked button:first-child:focus, .inline-toolbar .linked button:first-child:hover, .inline-toolbar .linked button:first-child:active, .inline-toolbar .linked button:first-child:checked, .inline-toolbar .linked button:only-child:focus, .inline-toolbar .linked button:only-child:hover, .inline-toolbar .linked button:only-child:active, .inline-toolbar .linked button:only-child:checked, .inline-toolbar .linked .raised button:first-child:focus, .inline-toolbar .linked .raised button:first-child:hover, .inline-toolbar .linked .raised button:first-child:active, .inline-toolbar .linked .raised button:first-child:checked, .inline-toolbar .linked .raised button:only-child:focus, .inline-toolbar .linked .raised button:only-child:hover, .inline-toolbar .linked .raised button:only-child:active, .inline-toolbar .linked .raised button:only-child:checked, .primary-toolbar .linked button:first-child:focus, .primary-toolbar .linked button:first-child:hover, .primary-toolbar .linked button:first-child:active, .primary-toolbar .linked button:first-child:checked, .primary-toolbar .linked button:only-child:focus, .primary-toolbar .linked button:only-child:hover, .primary-toolbar .linked button:only-child:active, .primary-toolbar .linked button:only-child:checked, .primary-toolbar .linked .raised button:first-child:focus, .primary-toolbar .linked .raised button:first-child:hover, .primary-toolbar .linked .raised button:first-child:active, .primary-toolbar .linked .raised button:first-child:checked, .primary-toolbar .linked .raised button:only-child:focus, .primary-toolbar .linked .raised button:only-child:hover, .primary-toolbar .linked .raised button:only-child:active, .primary-toolbar .linked .raised button:only-child:checked, .osd .linked button:first-child:focus, .osd .linked button:first-child:hover, .osd .linked button:first-child:active, .osd .linked button:first-child:checked, .osd .linked button:only-child:focus, .osd .linked button:only-child:hover, .osd .linked button:only-child:active, .osd .linked button:only-child:checked, .osd .linked .raised button:first-child:focus, .osd .linked .raised button:first-child:hover, .osd .linked .raised button:first-child:active, .osd .linked .raised button:first-child:checked, .osd .linked .raised button:only-child:focus, .osd .linked .raised button:only-child:hover, .osd .linked .raised button:only-child:active, .osd .linked .raised button:only-child:checked, .inline-toolbar .osd .linked button:first-child:focus, .inline-toolbar .osd .linked button:first-child:hover, .inline-toolbar .osd .linked button:first-child:active, .inline-toolbar .osd .linked button:first-child:checked, .inline-toolbar .osd .linked button:only-child:focus, .inline-toolbar .osd .linked button:only-child:hover, .inline-toolbar .osd .linked button:only-child:active, .inline-toolbar .osd .linked button:only-child:checked, .inline-toolbar .osd .linked .raised button:first-child:focus, .inline-toolbar .osd .linked .raised button:first-child:hover, .inline-toolbar .osd .linked .raised button:first-child:active, .inline-toolbar .osd .linked .raised button:first-child:checked, .inline-toolbar .osd .linked .raised button:only-child:focus, .inline-toolbar .osd .linked .raised button:only-child:hover, .inline-toolbar .osd .linked .raised button:only-child:active, .inline-toolbar .osd .linked .raised button:only-child:checked, .primary-toolbar .osd .linked button:first-child:focus, .primary-toolbar .osd .linked button:first-child:hover, .primary-toolbar .osd .linked button:first-child:active, .primary-toolbar .osd .linked button:first-child:checked, .primary-toolbar .osd .linked button:only-child:focus, .primary-toolbar .osd .linked button:only-child:hover, .primary-toolbar .osd .linked button:only-child:active, .primary-toolbar .osd .linked button:only-child:checked, .primary-toolbar .osd .linked .raised button:first-child:focus, .primary-toolbar .osd .linked .raised button:first-child:hover, .primary-toolbar .osd .linked .raised button:first-child:active, .primary-toolbar .osd .linked .raised button:first-child:checked, .primary-toolbar .osd .linked .raised button:only-child:focus, .primary-toolbar .osd .linked .raised button:only-child:hover, .primary-toolbar .osd .linked .raised button:only-child:active, .primary-toolbar .osd .linked .raised button:only-child:checked {
     box-shadow: none; }
-    .linked button:first-child:focus:backdrop, .linked button:first-child:hover:backdrop, .linked button:first-child:active:backdrop, .linked button:first-child:checked:backdrop, .linked button:only-child:focus:backdrop, .linked button:only-child:hover:backdrop, .linked button:only-child:active:backdrop, .linked button:only-child:checked:backdrop, .linked .raised button:first-child:focus:backdrop, .linked .raised button:first-child:hover:backdrop, .linked .raised button:first-child:active:backdrop, .linked .raised button:first-child:checked:backdrop, .linked .raised button:only-child:focus:backdrop, .linked .raised button:only-child:hover:backdrop, .linked .raised button:only-child:active:backdrop, .linked .raised button:only-child:checked:backdrop, .inline-toolbar .linked button:first-child:focus:backdrop, .inline-toolbar .linked button:first-child:hover:backdrop, .inline-toolbar .linked button:first-child:active:backdrop, .inline-toolbar .linked button:first-child:checked:backdrop, .inline-toolbar .linked button:only-child:focus:backdrop, .inline-toolbar .linked button:only-child:hover:backdrop, .inline-toolbar .linked button:only-child:active:backdrop, .inline-toolbar .linked button:only-child:checked:backdrop, .inline-toolbar .linked .raised button:first-child:focus:backdrop, .inline-toolbar .linked .raised button:first-child:hover:backdrop, .inline-toolbar .linked .raised button:first-child:active:backdrop, .inline-toolbar .linked .raised button:first-child:checked:backdrop, .inline-toolbar .linked .raised button:only-child:focus:backdrop, .inline-toolbar .linked .raised button:only-child:hover:backdrop, .inline-toolbar .linked .raised button:only-child:active:backdrop, .inline-toolbar .linked .raised button:only-child:checked:backdrop, .primary-toolbar .linked button:first-child:focus:backdrop, .primary-toolbar .linked button:first-child:hover:backdrop, .primary-toolbar .linked button:first-child:active:backdrop, .primary-toolbar .linked button:first-child:checked:backdrop, .primary-toolbar .linked button:only-child:focus:backdrop, .primary-toolbar .linked button:only-child:hover:backdrop, .primary-toolbar .linked button:only-child:active:backdrop, .primary-toolbar .linked button:only-child:checked:backdrop, .primary-toolbar .linked .raised button:first-child:focus:backdrop, .primary-toolbar .linked .raised button:first-child:hover:backdrop, .primary-toolbar .linked .raised button:first-child:active:backdrop, .primary-toolbar .linked .raised button:first-child:checked:backdrop, .primary-toolbar .linked .raised button:only-child:focus:backdrop, .primary-toolbar .linked .raised button:only-child:hover:backdrop, .primary-toolbar .linked .raised button:only-child:active:backdrop, .primary-toolbar .linked .raised button:only-child:checked:backdrop {
+    .linked button:first-child:focus:backdrop, .linked button:first-child:hover:backdrop, .linked button:first-child:active:backdrop, .linked button:first-child:checked:backdrop, .linked button:only-child:focus:backdrop, .linked button:only-child:hover:backdrop, .linked button:only-child:active:backdrop, .linked button:only-child:checked:backdrop, .linked .raised button:first-child:focus:backdrop, .linked .raised button:first-child:hover:backdrop, .linked .raised button:first-child:active:backdrop, .linked .raised button:first-child:checked:backdrop, .linked .raised button:only-child:focus:backdrop, .linked .raised button:only-child:hover:backdrop, .linked .raised button:only-child:active:backdrop, .linked .raised button:only-child:checked:backdrop, .inline-toolbar .linked button:first-child:focus:backdrop, .inline-toolbar .linked button:first-child:hover:backdrop, .inline-toolbar .linked button:first-child:active:backdrop, .inline-toolbar .linked button:first-child:checked:backdrop, .inline-toolbar .linked button:only-child:focus:backdrop, .inline-toolbar .linked button:only-child:hover:backdrop, .inline-toolbar .linked button:only-child:active:backdrop, .inline-toolbar .linked button:only-child:checked:backdrop, .inline-toolbar .linked .raised button:first-child:focus:backdrop, .inline-toolbar .linked .raised button:first-child:hover:backdrop, .inline-toolbar .linked .raised button:first-child:active:backdrop, .inline-toolbar .linked .raised button:first-child:checked:backdrop, .inline-toolbar .linked .raised button:only-child:focus:backdrop, .inline-toolbar .linked .raised button:only-child:hover:backdrop, .inline-toolbar .linked .raised button:only-child:active:backdrop, .inline-toolbar .linked .raised button:only-child:checked:backdrop, .primary-toolbar .linked button:first-child:focus:backdrop, .primary-toolbar .linked button:first-child:hover:backdrop, .primary-toolbar .linked button:first-child:active:backdrop, .primary-toolbar .linked button:first-child:checked:backdrop, .primary-toolbar .linked button:only-child:focus:backdrop, .primary-toolbar .linked button:only-child:hover:backdrop, .primary-toolbar .linked button:only-child:active:backdrop, .primary-toolbar .linked button:only-child:checked:backdrop, .primary-toolbar .linked .raised button:first-child:focus:backdrop, .primary-toolbar .linked .raised button:first-child:hover:backdrop, .primary-toolbar .linked .raised button:first-child:active:backdrop, .primary-toolbar .linked .raised button:first-child:checked:backdrop, .primary-toolbar .linked .raised button:only-child:focus:backdrop, .primary-toolbar .linked .raised button:only-child:hover:backdrop, .primary-toolbar .linked .raised button:only-child:active:backdrop, .primary-toolbar .linked .raised button:only-child:checked:backdrop, .osd .linked button:first-child:focus:backdrop, .osd .linked button:first-child:hover:backdrop, .osd .linked button:first-child:active:backdrop, .osd .linked button:first-child:checked:backdrop, .osd .linked button:only-child:focus:backdrop, .osd .linked button:only-child:hover:backdrop, .osd .linked button:only-child:active:backdrop, .osd .linked button:only-child:checked:backdrop, .osd .linked .raised button:first-child:focus:backdrop, .osd .linked .raised button:first-child:hover:backdrop, .osd .linked .raised button:first-child:active:backdrop, .osd .linked .raised button:first-child:checked:backdrop, .osd .linked .raised button:only-child:focus:backdrop, .osd .linked .raised button:only-child:hover:backdrop, .osd .linked .raised button:only-child:active:backdrop, .osd .linked .raised button:only-child:checked:backdrop, .inline-toolbar .osd .linked button:first-child:focus:backdrop, .inline-toolbar .osd .linked button:first-child:hover:backdrop, .inline-toolbar .osd .linked button:first-child:active:backdrop, .inline-toolbar .osd .linked button:first-child:checked:backdrop, .inline-toolbar .osd .linked button:only-child:focus:backdrop, .inline-toolbar .osd .linked button:only-child:hover:backdrop, .inline-toolbar .osd .linked button:only-child:active:backdrop, .inline-toolbar .osd .linked button:only-child:checked:backdrop, .inline-toolbar .osd .linked .raised button:first-child:focus:backdrop, .inline-toolbar .osd .linked .raised button:first-child:hover:backdrop, .inline-toolbar .osd .linked .raised button:first-child:active:backdrop, .inline-toolbar .osd .linked .raised button:first-child:checked:backdrop, .inline-toolbar .osd .linked .raised button:only-child:focus:backdrop, .inline-toolbar .osd .linked .raised button:only-child:hover:backdrop, .inline-toolbar .osd .linked .raised button:only-child:active:backdrop, .inline-toolbar .osd .linked .raised button:only-child:checked:backdrop, .primary-toolbar .osd .linked button:first-child:focus:backdrop, .primary-toolbar .osd .linked button:first-child:hover:backdrop, .primary-toolbar .osd .linked button:first-child:active:backdrop, .primary-toolbar .osd .linked button:first-child:checked:backdrop, .primary-toolbar .osd .linked button:only-child:focus:backdrop, .primary-toolbar .osd .linked button:only-child:hover:backdrop, .primary-toolbar .osd .linked button:only-child:active:backdrop, .primary-toolbar .osd .linked button:only-child:checked:backdrop, .primary-toolbar .osd .linked .raised button:first-child:focus:backdrop, .primary-toolbar .osd .linked .raised button:first-child:hover:backdrop, .primary-toolbar .osd .linked .raised button:first-child:active:backdrop, .primary-toolbar .osd .linked .raised button:first-child:checked:backdrop, .primary-toolbar .osd .linked .raised button:only-child:focus:backdrop, .primary-toolbar .osd .linked .raised button:only-child:hover:backdrop, .primary-toolbar .osd .linked .raised button:only-child:active:backdrop, .primary-toolbar .osd .linked .raised button:only-child:checked:backdrop {
       box-shadow: none; }
-.linked entry, .inline-toolbar .linked entry, .primary-toolbar .linked entry {
+.linked entry, .inline-toolbar .linked entry, .primary-toolbar .linked entry, .osd .linked entry, .inline-toolbar .osd .linked entry, .primary-toolbar .osd .linked entry {
   border-radius: 0;
   border-left-width: 0; }
-  .linked entry:first-child, .inline-toolbar .linked entry:first-child, .primary-toolbar .linked entry:first-child {
+  .linked entry:first-child, .inline-toolbar .linked entry:first-child, .primary-toolbar .linked entry:first-child, .osd .linked entry:first-child, .inline-toolbar .osd .linked entry:first-child, .primary-toolbar .osd .linked entry:first-child {
     border-left-width: 1px;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px; }
-  .linked entry:last-child, .inline-toolbar .linked entry:last-child, .primary-toolbar .linked entry:last-child {
+  .linked entry:last-child, .inline-toolbar .linked entry:last-child, .primary-toolbar .linked entry:last-child, .osd .linked entry:last-child, .inline-toolbar .osd .linked entry:last-child, .primary-toolbar .osd .linked entry:last-child {
     border-left-width: 0;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px; }
-  .linked entry:only-child, .inline-toolbar .linked entry:only-child, .primary-toolbar .linked entry:only-child {
+  .linked entry:only-child, .inline-toolbar .linked entry:only-child, .primary-toolbar .linked entry:only-child, .osd .linked entry:only-child, .inline-toolbar .osd .linked entry:only-child, .primary-toolbar .osd .linked entry:only-child {
     border-width: 1px;
     border-radius: 2px; }
-.linked combobox box.linked button, .inline-toolbar .linked combobox box.linked button, .primary-toolbar .linked combobox box.linked button {
+.linked combobox box.linked button, .inline-toolbar .linked combobox box.linked button, .primary-toolbar .linked combobox box.linked button, .osd .linked combobox box.linked button, .inline-toolbar .osd .linked combobox box.linked button, .primary-toolbar .osd .linked combobox box.linked button {
   border-radius: 0;
   border-left-width: 0; }
-  .linked combobox box.linked button:focus, .linked combobox box.linked button:hover, .linked combobox box.linked button:active, .linked combobox box.linked button:checked, .inline-toolbar .linked combobox box.linked button:focus, .inline-toolbar .linked combobox box.linked button:hover, .inline-toolbar .linked combobox box.linked button:active, .inline-toolbar .linked combobox box.linked button:checked, .primary-toolbar .linked combobox box.linked button:focus, .primary-toolbar .linked combobox box.linked button:hover, .primary-toolbar .linked combobox box.linked button:active, .primary-toolbar .linked combobox box.linked button:checked {
+  .linked combobox box.linked button:focus, .linked combobox box.linked button:hover, .linked combobox box.linked button:active, .linked combobox box.linked button:checked, .inline-toolbar .linked combobox box.linked button:focus, .inline-toolbar .linked combobox box.linked button:hover, .inline-toolbar .linked combobox box.linked button:active, .inline-toolbar .linked combobox box.linked button:checked, .primary-toolbar .linked combobox box.linked button:focus, .primary-toolbar .linked combobox box.linked button:hover, .primary-toolbar .linked combobox box.linked button:active, .primary-toolbar .linked combobox box.linked button:checked, .osd .linked combobox box.linked button:focus, .osd .linked combobox box.linked button:hover, .osd .linked combobox box.linked button:active, .osd .linked combobox box.linked button:checked, .inline-toolbar .osd .linked combobox box.linked button:focus, .inline-toolbar .osd .linked combobox box.linked button:hover, .inline-toolbar .osd .linked combobox box.linked button:active, .inline-toolbar .osd .linked combobox box.linked button:checked, .primary-toolbar .osd .linked combobox box.linked button:focus, .primary-toolbar .osd .linked combobox box.linked button:hover, .primary-toolbar .osd .linked combobox box.linked button:active, .primary-toolbar .osd .linked combobox box.linked button:checked {
     box-shadow: -1px 0 shade(@theme_selected_bg_color, 0.6); }
-    .linked combobox box.linked button:focus:backdrop, .linked combobox box.linked button:hover:backdrop, .linked combobox box.linked button:active:backdrop, .linked combobox box.linked button:checked:backdrop, .inline-toolbar .linked combobox box.linked button:focus:backdrop, .inline-toolbar .linked combobox box.linked button:hover:backdrop, .inline-toolbar .linked combobox box.linked button:active:backdrop, .inline-toolbar .linked combobox box.linked button:checked:backdrop, .primary-toolbar .linked combobox box.linked button:focus:backdrop, .primary-toolbar .linked combobox box.linked button:hover:backdrop, .primary-toolbar .linked combobox box.linked button:active:backdrop, .primary-toolbar .linked combobox box.linked button:checked:backdrop {
+    .linked combobox box.linked button:focus:backdrop, .linked combobox box.linked button:hover:backdrop, .linked combobox box.linked button:active:backdrop, .linked combobox box.linked button:checked:backdrop, .inline-toolbar .linked combobox box.linked button:focus:backdrop, .inline-toolbar .linked combobox box.linked button:hover:backdrop, .inline-toolbar .linked combobox box.linked button:active:backdrop, .inline-toolbar .linked combobox box.linked button:checked:backdrop, .primary-toolbar .linked combobox box.linked button:focus:backdrop, .primary-toolbar .linked combobox box.linked button:hover:backdrop, .primary-toolbar .linked combobox box.linked button:active:backdrop, .primary-toolbar .linked combobox box.linked button:checked:backdrop, .osd .linked combobox box.linked button:focus:backdrop, .osd .linked combobox box.linked button:hover:backdrop, .osd .linked combobox box.linked button:active:backdrop, .osd .linked combobox box.linked button:checked:backdrop, .inline-toolbar .osd .linked combobox box.linked button:focus:backdrop, .inline-toolbar .osd .linked combobox box.linked button:hover:backdrop, .inline-toolbar .osd .linked combobox box.linked button:active:backdrop, .inline-toolbar .osd .linked combobox box.linked button:checked:backdrop, .primary-toolbar .osd .linked combobox box.linked button:focus:backdrop, .primary-toolbar .osd .linked combobox box.linked button:hover:backdrop, .primary-toolbar .osd .linked combobox box.linked button:active:backdrop, .primary-toolbar .osd .linked combobox box.linked button:checked:backdrop {
       box-shadow: -1px 0 shade(@theme_unfocused_bg_color, 0.85); }
-.linked combobox:first-child box.linked button, .inline-toolbar .linked combobox:first-child box.linked button, .primary-toolbar .linked combobox:first-child box.linked button {
+.linked combobox:first-child box.linked button, .inline-toolbar .linked combobox:first-child box.linked button, .primary-toolbar .linked combobox:first-child box.linked button, .osd .linked combobox:first-child box.linked button, .inline-toolbar .osd .linked combobox:first-child box.linked button, .primary-toolbar .osd .linked combobox:first-child box.linked button {
   border-left-width: 1px;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px; }
-.linked combobox:last-child box.linked button, .inline-toolbar .linked combobox:last-child box.linked button, .primary-toolbar .linked combobox:last-child box.linked button {
+.linked combobox:last-child box.linked button, .inline-toolbar .linked combobox:last-child box.linked button, .primary-toolbar .linked combobox:last-child box.linked button, .osd .linked combobox:last-child box.linked button, .inline-toolbar .osd .linked combobox:last-child box.linked button, .primary-toolbar .osd .linked combobox:last-child box.linked button {
   border-left-width: 0;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px; }
-.linked combobox:only-child box.linked button, .inline-toolbar .linked combobox:only-child box.linked button, .primary-toolbar .linked combobox:only-child box.linked button {
+.linked combobox:only-child box.linked button, .inline-toolbar .linked combobox:only-child box.linked button, .primary-toolbar .linked combobox:only-child box.linked button, .osd .linked combobox:only-child box.linked button, .inline-toolbar .osd .linked combobox:only-child box.linked button, .primary-toolbar .osd .linked combobox:only-child box.linked button {
   border-width: 1px;
   border-radius: 3px; }
-.linked combobox:first-child box.linked button:focus, .linked combobox:first-child box.linked button:hover, .linked combobox:first-child box.linked button:active, .linked combobox:first-child box.linked button:checked, .linked combobox:only-child box.linked button:focus, .linked combobox:only-child box.linked button:hover, .linked combobox:only-child box.linked button:active, .linked combobox:only-child box.linked button:checked, .inline-toolbar .linked combobox:first-child box.linked button:focus, .inline-toolbar .linked combobox:first-child box.linked button:hover, .inline-toolbar .linked combobox:first-child box.linked button:active, .inline-toolbar .linked combobox:first-child box.linked button:checked, .inline-toolbar .linked combobox:only-child box.linked button:focus, .inline-toolbar .linked combobox:only-child box.linked button:hover, .inline-toolbar .linked combobox:only-child box.linked button:active, .inline-toolbar .linked combobox:only-child box.linked button:checked, .primary-toolbar .linked combobox:first-child box.linked button:focus, .primary-toolbar .linked combobox:first-child box.linked button:hover, .primary-toolbar .linked combobox:first-child box.linked button:active, .primary-toolbar .linked combobox:first-child box.linked button:checked, .primary-toolbar .linked combobox:only-child box.linked button:focus, .primary-toolbar .linked combobox:only-child box.linked button:hover, .primary-toolbar .linked combobox:only-child box.linked button:active, .primary-toolbar .linked combobox:only-child box.linked button:checked {
+.linked combobox:first-child box.linked button:focus, .linked combobox:first-child box.linked button:hover, .linked combobox:first-child box.linked button:active, .linked combobox:first-child box.linked button:checked, .linked combobox:only-child box.linked button:focus, .linked combobox:only-child box.linked button:hover, .linked combobox:only-child box.linked button:active, .linked combobox:only-child box.linked button:checked, .inline-toolbar .linked combobox:first-child box.linked button:focus, .inline-toolbar .linked combobox:first-child box.linked button:hover, .inline-toolbar .linked combobox:first-child box.linked button:active, .inline-toolbar .linked combobox:first-child box.linked button:checked, .inline-toolbar .linked combobox:only-child box.linked button:focus, .inline-toolbar .linked combobox:only-child box.linked button:hover, .inline-toolbar .linked combobox:only-child box.linked button:active, .inline-toolbar .linked combobox:only-child box.linked button:checked, .primary-toolbar .linked combobox:first-child box.linked button:focus, .primary-toolbar .linked combobox:first-child box.linked button:hover, .primary-toolbar .linked combobox:first-child box.linked button:active, .primary-toolbar .linked combobox:first-child box.linked button:checked, .primary-toolbar .linked combobox:only-child box.linked button:focus, .primary-toolbar .linked combobox:only-child box.linked button:hover, .primary-toolbar .linked combobox:only-child box.linked button:active, .primary-toolbar .linked combobox:only-child box.linked button:checked, .osd .linked combobox:first-child box.linked button:focus, .osd .linked combobox:first-child box.linked button:hover, .osd .linked combobox:first-child box.linked button:active, .osd .linked combobox:first-child box.linked button:checked, .osd .linked combobox:only-child box.linked button:focus, .osd .linked combobox:only-child box.linked button:hover, .osd .linked combobox:only-child box.linked button:active, .osd .linked combobox:only-child box.linked button:checked, .inline-toolbar .osd .linked combobox:first-child box.linked button:focus, .inline-toolbar .osd .linked combobox:first-child box.linked button:hover, .inline-toolbar .osd .linked combobox:first-child box.linked button:active, .inline-toolbar .osd .linked combobox:first-child box.linked button:checked, .inline-toolbar .osd .linked combobox:only-child box.linked button:focus, .inline-toolbar .osd .linked combobox:only-child box.linked button:hover, .inline-toolbar .osd .linked combobox:only-child box.linked button:active, .inline-toolbar .osd .linked combobox:only-child box.linked button:checked, .primary-toolbar .osd .linked combobox:first-child box.linked button:focus, .primary-toolbar .osd .linked combobox:first-child box.linked button:hover, .primary-toolbar .osd .linked combobox:first-child box.linked button:active, .primary-toolbar .osd .linked combobox:first-child box.linked button:checked, .primary-toolbar .osd .linked combobox:only-child box.linked button:focus, .primary-toolbar .osd .linked combobox:only-child box.linked button:hover, .primary-toolbar .osd .linked combobox:only-child box.linked button:active, .primary-toolbar .osd .linked combobox:only-child box.linked button:checked {
   box-shadow: none; }
-  .linked combobox:first-child box.linked button:focus:backdrop, .linked combobox:first-child box.linked button:hover:backdrop, .linked combobox:first-child box.linked button:active:backdrop, .linked combobox:first-child box.linked button:checked:backdrop, .linked combobox:only-child box.linked button:focus:backdrop, .linked combobox:only-child box.linked button:hover:backdrop, .linked combobox:only-child box.linked button:active:backdrop, .linked combobox:only-child box.linked button:checked:backdrop, .inline-toolbar .linked combobox:first-child box.linked button:focus:backdrop, .inline-toolbar .linked combobox:first-child box.linked button:hover:backdrop, .inline-toolbar .linked combobox:first-child box.linked button:active:backdrop, .inline-toolbar .linked combobox:first-child box.linked button:checked:backdrop, .inline-toolbar .linked combobox:only-child box.linked button:focus:backdrop, .inline-toolbar .linked combobox:only-child box.linked button:hover:backdrop, .inline-toolbar .linked combobox:only-child box.linked button:active:backdrop, .inline-toolbar .linked combobox:only-child box.linked button:checked:backdrop, .primary-toolbar .linked combobox:first-child box.linked button:focus:backdrop, .primary-toolbar .linked combobox:first-child box.linked button:hover:backdrop, .primary-toolbar .linked combobox:first-child box.linked button:active:backdrop, .primary-toolbar .linked combobox:first-child box.linked button:checked:backdrop, .primary-toolbar .linked combobox:only-child box.linked button:focus:backdrop, .primary-toolbar .linked combobox:only-child box.linked button:hover:backdrop, .primary-toolbar .linked combobox:only-child box.linked button:active:backdrop, .primary-toolbar .linked combobox:only-child box.linked button:checked:backdrop {
+  .linked combobox:first-child box.linked button:focus:backdrop, .linked combobox:first-child box.linked button:hover:backdrop, .linked combobox:first-child box.linked button:active:backdrop, .linked combobox:first-child box.linked button:checked:backdrop, .linked combobox:only-child box.linked button:focus:backdrop, .linked combobox:only-child box.linked button:hover:backdrop, .linked combobox:only-child box.linked button:active:backdrop, .linked combobox:only-child box.linked button:checked:backdrop, .inline-toolbar .linked combobox:first-child box.linked button:focus:backdrop, .inline-toolbar .linked combobox:first-child box.linked button:hover:backdrop, .inline-toolbar .linked combobox:first-child box.linked button:active:backdrop, .inline-toolbar .linked combobox:first-child box.linked button:checked:backdrop, .inline-toolbar .linked combobox:only-child box.linked button:focus:backdrop, .inline-toolbar .linked combobox:only-child box.linked button:hover:backdrop, .inline-toolbar .linked combobox:only-child box.linked button:active:backdrop, .inline-toolbar .linked combobox:only-child box.linked button:checked:backdrop, .primary-toolbar .linked combobox:first-child box.linked button:focus:backdrop, .primary-toolbar .linked combobox:first-child box.linked button:hover:backdrop, .primary-toolbar .linked combobox:first-child box.linked button:active:backdrop, .primary-toolbar .linked combobox:first-child box.linked button:checked:backdrop, .primary-toolbar .linked combobox:only-child box.linked button:focus:backdrop, .primary-toolbar .linked combobox:only-child box.linked button:hover:backdrop, .primary-toolbar .linked combobox:only-child box.linked button:active:backdrop, .primary-toolbar .linked combobox:only-child box.linked button:checked:backdrop, .osd .linked combobox:first-child box.linked button:focus:backdrop, .osd .linked combobox:first-child box.linked button:hover:backdrop, .osd .linked combobox:first-child box.linked button:active:backdrop, .osd .linked combobox:first-child box.linked button:checked:backdrop, .osd .linked combobox:only-child box.linked button:focus:backdrop, .osd .linked combobox:only-child box.linked button:hover:backdrop, .osd .linked combobox:only-child box.linked button:active:backdrop, .osd .linked combobox:only-child box.linked button:checked:backdrop, .inline-toolbar .osd .linked combobox:first-child box.linked button:focus:backdrop, .inline-toolbar .osd .linked combobox:first-child box.linked button:hover:backdrop, .inline-toolbar .osd .linked combobox:first-child box.linked button:active:backdrop, .inline-toolbar .osd .linked combobox:first-child box.linked button:checked:backdrop, .inline-toolbar .osd .linked combobox:only-child box.linked button:focus:backdrop, .inline-toolbar .osd .linked combobox:only-child box.linked button:hover:backdrop, .inline-toolbar .osd .linked combobox:only-child box.linked button:active:backdrop, .inline-toolbar .osd .linked combobox:only-child box.linked button:checked:backdrop, .primary-toolbar .osd .linked combobox:first-child box.linked button:focus:backdrop, .primary-toolbar .osd .linked combobox:first-child box.linked button:hover:backdrop, .primary-toolbar .osd .linked combobox:first-child box.linked button:active:backdrop, .primary-toolbar .osd .linked combobox:first-child box.linked button:checked:backdrop, .primary-toolbar .osd .linked combobox:only-child box.linked button:focus:backdrop, .primary-toolbar .osd .linked combobox:only-child box.linked button:hover:backdrop, .primary-toolbar .osd .linked combobox:only-child box.linked button:active:backdrop, .primary-toolbar .osd .linked combobox:only-child box.linked button:checked:backdrop {
     box-shadow: none; }
 
-.vertical.linked button {
+.vertical.linked button, .osd .vertical.linked button {
   border-left-width: 1px;
   border-top-width: 0;
   border-radius: 0; }
-  .vertical.linked button:first-child {
+  .vertical.linked button:first-child, .osd .vertical.linked button:first-child {
     border-top-width: 1px;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
-  .vertical.linked button:last-child {
+  .vertical.linked button:last-child, .osd .vertical.linked button:last-child {
     border-top-width: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px; }
-  .vertical.linked button:only-child {
+  .vertical.linked button:only-child, .osd .vertical.linked button:only-child {
     border-top-width: 1px; }
-  .vertical.linked button:focus, .vertical.linked button:hover, .vertical.linked button:active, .vertical.linked button:checked {
+  .vertical.linked button:focus, .vertical.linked button:hover, .vertical.linked button:active, .vertical.linked button:checked, .osd .vertical.linked button:focus, .osd .vertical.linked button:hover, .osd .vertical.linked button:active, .osd .vertical.linked button:checked {
     box-shadow: 0 -1px shade(@theme_selected_bg_color, 0.6); }
-    .vertical.linked button:focus:backdrop, .vertical.linked button:hover:backdrop, .vertical.linked button:active:backdrop, .vertical.linked button:checked:backdrop {
+    .vertical.linked button:focus:backdrop, .vertical.linked button:hover:backdrop, .vertical.linked button:active:backdrop, .vertical.linked button:checked:backdrop, .osd .vertical.linked button:focus:backdrop, .osd .vertical.linked button:hover:backdrop, .osd .vertical.linked button:active:backdrop, .osd .vertical.linked button:checked:backdrop {
       box-shadow: 0 -1px shade(@theme_unfocused_bg_color, 0.85); }
-  .vertical.linked button:first-child:focus, .vertical.linked button:first-child:hover, .vertical.linked button:first-child:active, .vertical.linked button:first-child:checked, .vertical.linked button:only-child:focus, .vertical.linked button:only-child:hover, .vertical.linked button:only-child:active, .vertical.linked button:only-child:checked {
+  .vertical.linked button:first-child:focus, .vertical.linked button:first-child:hover, .vertical.linked button:first-child:active, .vertical.linked button:first-child:checked, .vertical.linked button:only-child:focus, .vertical.linked button:only-child:hover, .vertical.linked button:only-child:active, .vertical.linked button:only-child:checked, .osd .vertical.linked button:first-child:focus, .osd .vertical.linked button:first-child:hover, .osd .vertical.linked button:first-child:active, .osd .vertical.linked button:first-child:checked, .osd .vertical.linked button:only-child:focus, .osd .vertical.linked button:only-child:hover, .osd .vertical.linked button:only-child:active, .osd .vertical.linked button:only-child:checked {
     box-shadow: none; }
-    .vertical.linked button:first-child:focus:backdrop, .vertical.linked button:first-child:hover:backdrop, .vertical.linked button:first-child:active:backdrop, .vertical.linked button:first-child:checked:backdrop, .vertical.linked button:only-child:focus:backdrop, .vertical.linked button:only-child:hover:backdrop, .vertical.linked button:only-child:active:backdrop, .vertical.linked button:only-child:checked:backdrop {
+    .vertical.linked button:first-child:focus:backdrop, .vertical.linked button:first-child:hover:backdrop, .vertical.linked button:first-child:active:backdrop, .vertical.linked button:first-child:checked:backdrop, .vertical.linked button:only-child:focus:backdrop, .vertical.linked button:only-child:hover:backdrop, .vertical.linked button:only-child:active:backdrop, .vertical.linked button:only-child:checked:backdrop, .osd .vertical.linked button:first-child:focus:backdrop, .osd .vertical.linked button:first-child:hover:backdrop, .osd .vertical.linked button:first-child:active:backdrop, .osd .vertical.linked button:first-child:checked:backdrop, .osd .vertical.linked button:only-child:focus:backdrop, .osd .vertical.linked button:only-child:hover:backdrop, .osd .vertical.linked button:only-child:active:backdrop, .osd .vertical.linked button:only-child:checked:backdrop {
       box-shadow: none; }
-.vertical.linked entry {
+.vertical.linked entry, .osd .vertical.linked entry {
   border-left-width: 1px;
   border-top-width: 0;
   border-radius: 0; }
-  .vertical.linked entry:first-child {
+  .vertical.linked entry:first-child, .osd .vertical.linked entry:first-child {
     border-top-width: 1px;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0; }
-  .vertical.linked entry:last-child {
+  .vertical.linked entry:last-child, .osd .vertical.linked entry:last-child {
     border-top-width: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px; }
-  .vertical.linked entry:only-child {
+  .vertical.linked entry:only-child, .osd .vertical.linked entry:only-child {
     border-top-width: 1px; }
-.vertical.linked combobox box.linked button {
+.vertical.linked combobox box.linked button, .osd .vertical.linked combobox box.linked button {
   border-left-width: 1px;
   border-top-width: 0;
   border-radius: 0; }
-  .vertical.linked combobox box.linked button:focus, .vertical.linked combobox box.linked button:hover, .vertical.linked combobox box.linked button:active, .vertical.linked combobox box.linked button:checked {
+  .vertical.linked combobox box.linked button:focus, .vertical.linked combobox box.linked button:hover, .vertical.linked combobox box.linked button:active, .vertical.linked combobox box.linked button:checked, .osd .vertical.linked combobox box.linked button:focus, .osd .vertical.linked combobox box.linked button:hover, .osd .vertical.linked combobox box.linked button:active, .osd .vertical.linked combobox box.linked button:checked {
     box-shadow: 0 -1px shade(@theme_selected_bg_color, 0.6); }
-    .vertical.linked combobox box.linked button:focus:backdrop, .vertical.linked combobox box.linked button:hover:backdrop, .vertical.linked combobox box.linked button:active:backdrop, .vertical.linked combobox box.linked button:checked:backdrop {
+    .vertical.linked combobox box.linked button:focus:backdrop, .vertical.linked combobox box.linked button:hover:backdrop, .vertical.linked combobox box.linked button:active:backdrop, .vertical.linked combobox box.linked button:checked:backdrop, .osd .vertical.linked combobox box.linked button:focus:backdrop, .osd .vertical.linked combobox box.linked button:hover:backdrop, .osd .vertical.linked combobox box.linked button:active:backdrop, .osd .vertical.linked combobox box.linked button:checked:backdrop {
       box-shadow: 0 -1px shade(@theme_unfocused_bg_color, 0.85); }
-.vertical.linked combobox:first-child box.linked button {
+.vertical.linked combobox:first-child box.linked button, .osd .vertical.linked combobox:first-child box.linked button {
   border-top-width: 1px;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0; }
-.vertical.linked combobox:last-child box.linked button {
+.vertical.linked combobox:last-child box.linked button, .osd .vertical.linked combobox:last-child box.linked button {
   border-top-width: 0;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px; }
-.vertical.linked combobox:only-child box.linked button {
+.vertical.linked combobox:only-child box.linked button, .osd .vertical.linked combobox:only-child box.linked button {
   border-top-width: 1px; }
-.vertical.linked combobox:first-child box.linked button:focus, .vertical.linked combobox:first-child box.linked button:hover, .vertical.linked combobox:first-child box.linked button:active, .vertical.linked combobox:first-child box.linked button:checked, .vertical.linked combobox:only-child box.linked button:focus, .vertical.linked combobox:only-child box.linked button:hover, .vertical.linked combobox:only-child box.linked button:active, .vertical.linked combobox:only-child box.linked button:checked {
+.vertical.linked combobox:first-child box.linked button:focus, .vertical.linked combobox:first-child box.linked button:hover, .vertical.linked combobox:first-child box.linked button:active, .vertical.linked combobox:first-child box.linked button:checked, .vertical.linked combobox:only-child box.linked button:focus, .vertical.linked combobox:only-child box.linked button:hover, .vertical.linked combobox:only-child box.linked button:active, .vertical.linked combobox:only-child box.linked button:checked, .osd .vertical.linked combobox:first-child box.linked button:focus, .osd .vertical.linked combobox:first-child box.linked button:hover, .osd .vertical.linked combobox:first-child box.linked button:active, .osd .vertical.linked combobox:first-child box.linked button:checked, .osd .vertical.linked combobox:only-child box.linked button:focus, .osd .vertical.linked combobox:only-child box.linked button:hover, .osd .vertical.linked combobox:only-child box.linked button:active, .osd .vertical.linked combobox:only-child box.linked button:checked {
   box-shadow: none; }
-  .vertical.linked combobox:first-child box.linked button:focus:backdrop, .vertical.linked combobox:first-child box.linked button:hover:backdrop, .vertical.linked combobox:first-child box.linked button:active:backdrop, .vertical.linked combobox:first-child box.linked button:checked:backdrop, .vertical.linked combobox:only-child box.linked button:focus:backdrop, .vertical.linked combobox:only-child box.linked button:hover:backdrop, .vertical.linked combobox:only-child box.linked button:active:backdrop, .vertical.linked combobox:only-child box.linked button:checked:backdrop {
+  .vertical.linked combobox:first-child box.linked button:focus:backdrop, .vertical.linked combobox:first-child box.linked button:hover:backdrop, .vertical.linked combobox:first-child box.linked button:active:backdrop, .vertical.linked combobox:first-child box.linked button:checked:backdrop, .vertical.linked combobox:only-child box.linked button:focus:backdrop, .vertical.linked combobox:only-child box.linked button:hover:backdrop, .vertical.linked combobox:only-child box.linked button:active:backdrop, .vertical.linked combobox:only-child box.linked button:checked:backdrop, .osd .vertical.linked combobox:first-child box.linked button:focus:backdrop, .osd .vertical.linked combobox:first-child box.linked button:hover:backdrop, .osd .vertical.linked combobox:first-child box.linked button:active:backdrop, .osd .vertical.linked combobox:first-child box.linked button:checked:backdrop, .osd .vertical.linked combobox:only-child box.linked button:focus:backdrop, .osd .vertical.linked combobox:only-child box.linked button:hover:backdrop, .osd .vertical.linked combobox:only-child box.linked button:active:backdrop, .osd .vertical.linked combobox:only-child box.linked button:checked:backdrop {
     box-shadow: none; }
-.vertical.linked spinbutton button:first-child {
+.vertical.linked spinbutton button:first-child, .osd .vertical.linked spinbutton button:first-child {
   border-width: 1px;
   border-top-width: 0;
   border-left-width: 1px; }
-.vertical.linked spinbutton button:last-child {
+.vertical.linked spinbutton button:last-child, .osd .vertical.linked spinbutton button:last-child {
   border-width: 0;
   border-left-width: 1px;
   border-right-width: 1px;
@@ -2753,7 +2798,7 @@ panel-toplevel.background na-tray-applet {
     border-width: 1px;
     border-radius: 3px;
     color: @theme_fg_color;
-    border-color: shade(@theme_bg_color, 0.75);
+    border-color: shade(@borders, 0.85);
     background-color: @theme_bg_color;
     background-image: linear-gradient(to bottom, @theme_bg_color 50%, shade(@theme_bg_color, 0.95) 51%, shade(@theme_bg_color, 0.94));
     box-shadow: inset 0 0 0 1px alpha(@light_shadow, 0.6); }
