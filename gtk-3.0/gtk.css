@@ -1317,7 +1317,7 @@ progressbar {
     border: none;
     border-radius: 0;
     background-color: #06B025;
-    background: -gtk-gradient(radial, center top, 0, center top, 0.6, from(alpha(black, 0.2)), to(transparent)) top no-repeat, -gtk-gradient(radial, center bottom, 0, center bottom, 0.6, from(alpha(black, 0.2)), to(transparent)) bottom no-repeat, linear-gradient(to left, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
+    background: -gtk-gradient(radial, center top, 0, center top, 0.6, from(alpha(black, 0.2)), to(transparent)) top no-repeat, -gtk-gradient(radial, center bottom, 0, center bottom, 0.6, from(alpha(black, 0.2)), to(transparent)) bottom no-repeat, linear-gradient(to right, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
     background-size: 100% 40px; }
     progressbar.vertical progress:backdrop {
       background-color: #06B025; }
