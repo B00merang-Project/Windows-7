@@ -1558,7 +1558,7 @@ scrollbar {
       scrollbar.horizontal slider:hover {
         border-color: shade(#CCE8FF, 0.7);
         background-color: shade(#F0F0F0, 0.6);
-        background: url("assets/handle-horiz-hover.png") no-repeat center center linear-gradient(to bottom, shade(#CCE8FF, 1.12), #CCE8FF 50%, shade(#CCE8FF, 0.95) 51%); }
+        background: url("assets/handle-horiz-hover.png") no-repeat center center, linear-gradient(to bottom, shade(#CCE8FF, 1.12), #CCE8FF 50%, shade(#CCE8FF, 0.95) 51%); }
         scrollbar.horizontal slider:hover:active {
           border-color: shade(#CCE8FF, 0.6);
           background-color: shade(#F0F0F0, 0.55);
