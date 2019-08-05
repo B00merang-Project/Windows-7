@@ -253,9 +253,6 @@ check, radio {
   background-color: transparent;
   min-height: 14px;
   min-width: 14px; }
-  menuitem check, menuitem radio {
-    min-height: 14px;
-    min-width: 14px; }
 
 checkbutton, radiobutton {
   padding: 4px;
