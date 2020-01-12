@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Windows 7
+Comment=Windows 7 UI for Linux OSes
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Windows 7
+MetacityTheme=Windows 7
+IconTheme=Windows 7
+CursorTheme=DMZ-White
+ButtonLayout=menu:minimize,maximize,close
