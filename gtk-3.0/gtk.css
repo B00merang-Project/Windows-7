@@ -2677,7 +2677,7 @@ panel-toplevel.background na-tray-applet {
       border: none;
       background-image: none;
       background-color: alpha(mix(#013364, black, 0.5), 0.6); }
-  .mate-panel-menu-bar .button:not(#tasklist-button) {
+  .mate-panel-menu-bar > .button:not(#tasklist-button) {
     color: #FFFFFF;
     text-shadow: 1px 1px black;
     background-image: none;
@@ -2685,11 +2685,11 @@ panel-toplevel.background na-tray-applet {
     border-radius: 0;
     border: none;
     box-shadow: inset 0 1px alpha(white, 0.4); }
-    .mate-panel-menu-bar .button:not(#tasklist-button):hover {
+    .mate-panel-menu-bar > .button:not(#tasklist-button):hover {
       border: none;
       background-image: none;
       background-color: alpha(mix(#013364, white, 0.2), 0.6); }
-    .mate-panel-menu-bar .button:not(#tasklist-button):active, .mate-panel-menu-bar .button:not(#tasklist-button):checked {
+    .mate-panel-menu-bar > .button:not(#tasklist-button):active, .mate-panel-menu-bar > .button:not(#tasklist-button):checked {
       color: #FFFFFF;
       border: none;
       background-image: none;
