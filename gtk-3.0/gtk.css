@@ -2644,6 +2644,22 @@ panel-toplevel.background na-tray-applet {
   background-color: transparent;
   background-image: url("../cinnamon/panel.png");
   background-size: 100% 100%; }
+  .mate-panel-menu-bar, .mate-panel-menu-bar .menubar {
+    background-color: transparent; }
+  .mate-panel-menu-bar menubar, .mate-panel-menu-bar menubar menuitem, .mate-panel-menu-bar togglebutton {
+    border-color: transparent;
+    background-color: transparent; }
+  .mate-panel-menu-bar menubar menuitem:hover, .mate-panel-menu-bar menubar menuitem:active {
+    color: #000000;
+    background-color: #CCE8FF; }
+  .mate-panel-menu-bar .menubar > .menuitem {
+    padding-top: 0;
+    padding-bottom: 0; }
+  .mate-panel-menu-bar GtkMenu .label {
+    color: #000000;
+    font-style: normal; }
+    .mate-panel-menu-bar GtkMenu .label:disabled {
+      color: mix(#000000, #F0F0F0, 0.5); }
   .mate-panel-menu-bar button, .mate-panel-menu-bar button.flat {
     color: #FFFFFF;
     text-shadow: 1px 1px black;
@@ -2661,22 +2677,6 @@ panel-toplevel.background na-tray-applet {
       border: none;
       background-image: none;
       background-color: alpha(mix(#013364, black, 0.5), 0.6); }
-  .mate-panel-menu-bar, .mate-panel-menu-bar .menubar {
-    background-color: transparent; }
-  .mate-panel-menu-bar menubar, .mate-panel-menu-bar menubar menuitem, .mate-panel-menu-bar togglebutton {
-    border-color: transparent;
-    background-color: transparent; }
-  .mate-panel-menu-bar menubar menuitem:hover, .mate-panel-menu-bar menubar menuitem:active {
-    color: #000000;
-    background-color: #CCE8FF; }
-  .mate-panel-menu-bar .menubar > .menuitem {
-    padding-top: 0;
-    padding-bottom: 0; }
-  .mate-panel-menu-bar GtkMenu .label {
-    color: #000000;
-    font-style: normal; }
-    .mate-panel-menu-bar GtkMenu .label:disabled {
-      color: mix(#000000, #F0F0F0, 0.5); }
   .mate-panel-menu-bar .button:not(#tasklist-button) {
     color: #FFFFFF;
     text-shadow: 1px 1px black;
