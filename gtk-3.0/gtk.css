@@ -2591,7 +2591,7 @@ panel-toplevel.background button {
   background-color: alpha(#013364, 0.6);
   border-radius: 0;
   border: none;
-  box-shadow: inset 0 1px alpha(white, 0.4); }
+  box-shadow: inset 0 1px alpha(white, 0.8); }
   panel-toplevel.background button:hover {
     border: none;
     background-image: none;
@@ -2666,7 +2666,7 @@ panel-toplevel.background na-tray-applet {
     background-color: alpha(#013364, 0.6);
     border-radius: 0;
     border: none;
-    box-shadow: inset 0 1px alpha(white, 0.4); }
+    box-shadow: inset 0 1px alpha(white, 0.8); }
     .mate-panel-menu-bar button:hover, .mate-panel-menu-bar button.flat:hover {
       border: none;
       background-image: none;
@@ -2683,7 +2683,7 @@ panel-toplevel.background na-tray-applet {
     background-color: alpha(#013364, 0.6);
     border-radius: 0;
     border: none;
-    box-shadow: inset 0 1px alpha(white, 0.4); }
+    box-shadow: inset 0 1px alpha(white, 0.8); }
     .mate-panel-menu-bar > .button:not(#tasklist-button):hover {
       border: none;
       background-image: none;
@@ -2753,7 +2753,7 @@ panel-toplevel.background na-tray-applet {
     background-color: alpha(#013364, 0.6);
     border-radius: 0;
     border: none;
-    box-shadow: inset 0 1px alpha(white, 0.4); }
+    box-shadow: inset 0 1px alpha(white, 0.8); }
     .xfce4-panel.panel button.flat:hover, .xfce4-panel.panel button.sidebar-button:hover {
       border: none;
       background-image: none;
