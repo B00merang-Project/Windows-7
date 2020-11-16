@@ -2572,7 +2572,6 @@ XfdesktopIconView .view {
     color: #FFFFFF; }
 XfdesktopIconView:active {
   color: #000000;
-  text-shadow: none;
   background-color: #CCE8FF; }
 
 panel-toplevel.background, panel-toplevel.background menubar {
