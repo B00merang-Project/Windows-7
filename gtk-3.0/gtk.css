@@ -2762,6 +2762,8 @@ panel-toplevel.background na-tray-applet {
       border: none;
       background-image: none;
       background-color: rgba(1, 26, 50, 0.6); }
+  .xfce4-panel.panel menu {
+    text-shadow: none; }
   .xfce4-panel.panel .tasklist button {
     color: #FFFFFF;
     text-shadow: 1px 1px black;
