@@ -2560,7 +2560,7 @@ messagedialog.csd .dialog-action-area button {
   .caja-desktop:active, .nemo-desktop.nemo-canvas-item:active, .nautilus-desktop.nautilus-canvas-item:active {
     color: #FFFFFF; }
   .caja-desktop:selected, .nemo-desktop.nemo-canvas-item:selected, .nautilus-desktop.nautilus-canvas-item:selected {
-    color: #000000;
+    color: #FFFFFF;
     text-shadow: none; }
 
 XfdesktopIconView .view {
@@ -2571,7 +2571,7 @@ XfdesktopIconView .view {
   XfdesktopIconView .view:active {
     color: #FFFFFF; }
 XfdesktopIconView:active {
-  color: #000000;
+  color: #FFFFFF;
   background-color: #CCE8FF; }
 
 panel-toplevel.background, panel-toplevel.background menubar {
