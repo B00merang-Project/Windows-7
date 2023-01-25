@@ -451,22 +451,11 @@ button {
       background-image: none; }
 
 button.destructive-action {
-  border-width: 1px;
-  border-style: solid;
-  border-color: #a30000;
-  border-radius: 3px;
-  color: #140000;
-  background-color: #CC0000; }
+  box-shadow: inset 0 0 1px 1px #CC0000;
+  border-color: #eb0000;
+  background-image: linear-gradient(to bottom, #f7d9d9, #f5d6d6, #ebcccc 50%, #dabcbc 51%); }
   button.destructive-action:hover {
-    border-color: #8f0000;
-    background-color: #a30000; }
-  button.destructive-action:active {
-    border-color: #8f0000;
-    background-color: #b80000; }
-  button.destructive-action:backdrop {
-    border-color: #a30000;
-    color: #140000;
-    background-color: #d74848; }
+    background-image: linear-gradient(to bottom, #f7d9d9, #f7d9d9, #ebcccc 50%, #e0c2c2 51%); }
 
 button.suggested-action {
   box-shadow: inset 0 0 1px 1px #88E1FC;
@@ -1991,7 +1980,6 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
     border: none; }
 
 calendar {
-  padding: 2px;
   border-width: 1px;
   border-radius: 3px;
   border-style: solid;
@@ -1999,17 +1987,32 @@ calendar {
   color: #000000; }
   calendar.header {
     border: none;
+    border-bottom: 1px solid #c6c6c6;
     color: #000000; }
   calendar.button {
-    color: #000000; }
+    color: rgba(0, 0, 0, 0.45); }
+    calendar.button:hover {
+      color: #000000; }
+    calendar.button:backdrop {
+      color: rgba(0, 0, 0, 0.45); }
+    calendar.button:disabled {
+      color: rgba(120, 120, 120, 0.45); }
   calendar:selected {
-    border-radius: 0;
+    border-radius: 4px;
     color: #000000;
-    background-color: #3399FF; }
+    background-color: #CCE8FF; }
+    calendar:selected:backdrop {
+      color: #000000;
+      background-color: #E5E5E5; }
   calendar:indeterminate {
-    color: alpha(currentColor, 0.55); }
+    color: alpha(currentColor, 0.1); }
   calendar.highlight {
-    color: #3399FF; }
+    color: #787878; }
+    calendar.highlight:backdrop {
+      color: #787878; }
+  calendar:backdrop {
+    color: #000000;
+    border-color: #b4b4b4; }
 
 messagedialog .background.csd {
   border-radius: 3px 3px 0 0;
