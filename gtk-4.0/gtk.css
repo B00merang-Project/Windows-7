@@ -451,11 +451,9 @@ editablelabel > stack > text > selection {
 
 button {
   padding: 3px;
-  border-style: solid;
-  border-width: 1px;
   border-radius: 3px;
+  border: 1px solid #999999;
   color: #000000;
-  border-color: #999999;
   background-color: #F0F0F0;
   background-image: linear-gradient(to bottom, white, #ececec 50%, #e4e4e4 51%, #e2e2e2);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
@@ -527,16 +525,16 @@ button {
       background-image: none; }
 
 button.destructive-action {
-  box-shadow: inset 0 0 1px 1px #CC0000;
   border-color: #eb0000;
-  background-image: linear-gradient(to bottom, #f7d9d9, #f5d6d6, #ebcccc 50%, #dabcbc 51%); }
+  background-image: linear-gradient(to bottom, #f7d9d9, #f5d6d6, #ebcccc 50%, #dabcbc 51%);
+  box-shadow: inset 0 0 1px 1px #CC0000; }
   button.destructive-action:hover {
     background-image: linear-gradient(to bottom, #f7d9d9, #f7d9d9, #ebcccc 50%, #e0c2c2 51%); }
 
 button.suggested-action {
-  box-shadow: inset 0 0 1px 1px #88E1FC;
   border-color: #3399FF;
-  background-image: linear-gradient(to bottom, #edfbff, #ebf8fc, #e0eef2 50%, #d0dde1 51%); }
+  background-image: linear-gradient(to bottom, #edfbff, #ebf8fc, #e0eef2 50%, #d0dde1 51%);
+  box-shadow: inset 0 0 1px 1px #88E1FC; }
   button.suggested-action:hover {
     background-image: linear-gradient(to bottom, #edfbff, #edfbff, #e0eef2 50%, #d6e4e8 51%); }
   button.suggested-action:active {
