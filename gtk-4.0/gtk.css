@@ -1092,31 +1092,32 @@ menu, .menu {
       menu menuitem accelerator:disabled, .menu menuitem accelerator:disabled {
         color: #787878; }
 
-menubar, .menubar {
-  padding: 0;
+menubar {
+  padding: 0px;
   border-style: none;
-  background-color: #F0F0F0;
   color: #000000;
+  background-color: #F0F0F0;
   background-image: linear-gradient(to bottom, #f9fafd, #eceff8 40%, #e1e6f3 41%, #eff2f9 89%, #f9fafd 90%, #9aa9cc); }
-  menubar:backdrop, .menubar:backdrop {
+  menubar:backdrop {
     color: #000000;
     background-color: #F0F0F0; }
-  menubar > menuitem, .menubar > menuitem {
+  menubar > item {
     padding: 3px 5px;
+    min-height: 12px;
+    border-radius: 3px;
     border: 1px solid transparent;
     color: #000000;
     background-color: transparent; }
-    menubar > menuitem:hover, .menubar > menuitem:hover {
+    menubar > item:selected {
+      border-color: #a3d3fa;
       color: #000000;
       background-color: #CCE8FF;
-      border-color: #a3d3fa;
-      border-radius: 3px;
       background-color: white;
       background-image: linear-gradient(to bottom, #e8f4ff, #d5ecff); }
-    menubar > menuitem:disabled, .menubar > menuitem:disabled {
+    menubar > item:disabled {
       color: #787878;
       background-color: transparent; }
-    menubar > menuitem:backdrop, .menubar > menuitem:backdrop {
+    menubar > item:backdrop {
       color: #000000;
       background-color: transparent; }
 
@@ -1378,6 +1379,10 @@ check, radio {
   margin: 4px;
   min-width: 14px;
   min-height: 14px;
+  border: none;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
   transition: 0.2s; }
 
 popover.menu check,
