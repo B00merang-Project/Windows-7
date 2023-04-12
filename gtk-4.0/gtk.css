@@ -1672,35 +1672,30 @@ progressbar {
   font-size: smaller;
   color: black; }
   progressbar > trough {
-    border: 1px solid #7d7d7d;
     border-radius: 3px;
-    background-image: linear-gradient(to bottom, white 20%, #c9cacb 65%, white 98%);
+    border: 1px solid #7d7d7d;
     box-shadow: inset -6px 0 4px 0 rgba(0, 0, 0, 0.08), inset 6px 0 4px 0 rgba(0, 0, 0, 0.08); }
     progressbar > trough:backdrop {
       background-color: #e4e4e4; }
   progressbar > trough > progress {
+    border-radius: 0px;
     border: none;
-    border-radius: 0;
-    background-color: #06B025;
-    background: radial-gradient(farthest-side at left, rgba(0, 0, 0, 0.2), transparent) left no-repeat, radial-gradient(farthest-side at right, rgba(0, 0, 0, 0.2), transparent) right no-repeat, linear-gradient(to bottom, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
-    background-size: 40px 100%; }
+    background-color: #06B025; }
     progressbar > trough > progress:backdrop {
       background-color: #06B025; }
   progressbar.vertical > trough {
-    border: 1px solid #7d7d7d;
-    border-radius: 3px;
-    background-image: linear-gradient(to right, white 20%, #c9cacb 65%, white 98%);
-    box-shadow: inset -6px 0 4px 0 rgba(0, 0, 0, 0.08), inset 6px 0 4px 0 rgba(0, 0, 0, 0.08); }
-    progressbar.vertical > trough:backdrop {
-      background-color: #e4e4e4; }
+    background-image: linear-gradient(to right, white 20%, #c9cacb 65%, white 98%); }
   progressbar.vertical > trough > progress {
     border: none;
     border-radius: 0;
     background-color: #06B025;
     background: radial-gradient(farthest-side at top, rgba(0, 0, 0, 0.2), transparent) top no-repeat, radial-gradient(farthest-side at bottom, rgba(0, 0, 0, 0.2), transparent) bottom no-repeat, linear-gradient(to right, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
     background-size: 100% 40px; }
-    progressbar.vertical > trough > progress:backdrop {
-      background-color: #06B025; }
+  progressbar.horizontal > trough {
+    background-image: linear-gradient(to bottom, white 20%, #c9cacb 65%, white 98%); }
+  progressbar.horizontal > trough > progress {
+    background: radial-gradient(farthest-side at left, rgba(0, 0, 0, 0.2), transparent) left no-repeat, radial-gradient(farthest-side at right, rgba(0, 0, 0, 0.2), transparent) right no-repeat, linear-gradient(to bottom, #cdffcd, #a6efb3 45%, #00d020 56%, #1ce233);
+    background-size: 40px 100%; }
   progressbar.horizontal > trough {
     min-width: 150px; }
   progressbar.vertical > trough {
