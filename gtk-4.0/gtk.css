@@ -649,18 +649,15 @@ toolbar {
     background-color: #F0F0F0; }
   toolbar.vertical, toolbar.vertical:backdrop {
     background-image: none; }
-  toolbar:disabled {
-    color: #787878;
-    background-color: #e4e4e4; }
   toolbar button.flat {
-    background-image: none;
-    background-color: transparent;
     border: 1px solid transparent;
+    background-color: transparent;
+    background-image: none;
     box-shadow: none; }
     toolbar button.flat:hover {
       border-color: #b4b4b4;
-      background-image: none;
       background-color: transparent;
+      background-image: none;
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.6); }
 
 searchbar {
@@ -753,17 +750,17 @@ infobar .close {
     background-color: rgba(0, 0, 0, 0.05); }
 
 headerbar {
-  padding: 4px 8px;
   min-height: 30px;
+  padding: 4px 8px;
   color: #000000;
   background-color: #E8ECF6;
-  box-shadow: inset 1px 0 rgba(255, 255, 255, 0.6), inset -1px 0 rgba(255, 255, 255, 0.6), inset 0 1px rgba(255, 255, 255, 0.6);
-  background-image: linear-gradient(to bottom, #9ab9e0, #cddef4); }
+  background-image: linear-gradient(to bottom, #9ab9e0, #cddef4);
+  box-shadow: inset 1px 0 rgba(255, 255, 255, 0.6), inset -1px 0 rgba(255, 255, 255, 0.6), inset 0 1px rgba(255, 255, 255, 0.6); }
   headerbar:backdrop {
     color: #000000;
     background-color: #e4e4e4;
-    box-shadow: inset 1px 0 rgba(255, 255, 255, 0.3), inset -1px 0 rgba(255, 255, 255, 0.3), inset 0 1px rgba(255, 255, 255, 0.3);
-    background-image: linear-gradient(to bottom, #b8c3de, #d7deef); }
+    background-image: linear-gradient(to bottom, #b8c3de, #d7deef);
+    box-shadow: inset 1px 0 rgba(255, 255, 255, 0.3), inset -1px 0 rgba(255, 255, 255, 0.3), inset 0 1px rgba(255, 255, 255, 0.3); }
   .tiled headerbar, .tiled headerbar:backdrop, .maximized headerbar, .maximized headerbar:backdrop {
     border-radius: 0; }
   separator:first-child + headerbar, separator:first-child + headerbar:backdrop, headerbar:first-child, headerbar:first-child:backdrop {
@@ -1944,13 +1941,11 @@ columnview row:not(:selected) cell editablelabel.editing text selection {
     border-spacing: 12px; }
 
 .app-notification {
+  margin: 5px;
   border: 1px solid #b4b4b4;
-  background-color: #FFFFFF;
   color: #000000;
-  padding: 8px;
-  margin: 5px; }
-  .app-notification border {
-    border: none; }
+  background-color: #FFFFFF;
+  padding: 8px; }
 
 expander {
   min-width: 16px;
@@ -2368,7 +2363,7 @@ shortcut > .keycap {
   font-size: smaller; }
 
 stackswitcher > button.text-button {
-  min-width: 100px; }
+  min-width: 120px; }
 
 stackswitcher.circular {
   border-spacing: 12px; }
