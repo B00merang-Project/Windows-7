@@ -4,7 +4,7 @@
 Linux theme based on the apperance of Windows 7
 
 ### Preview
-![win-7](https://b00merang.weebly.com/uploads/1/6/8/1/16813022/906611131-orig-orig_2_orig.png)
+![windows-7](https://b00merang-project.github.io/resources/screenshots/windows-7/blackcomb_1.png)
 
 ### Supported platforms
 - Any GTK-based desktop
